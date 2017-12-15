@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    public enum Otazka
+    class Otazka
     {
-
+        readonly string[] otazky = new string[] { "Kolko je 5+5","" }
     }
 }
