@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,12 @@ namespace Test
 {
     class Otazka
     {
-        readonly string[] otazky = new string[] { "Kolko je 5+5","" }
+        enum TypOtazky
+        {
+            SingleChoice,
+            MultipleChoice
+        }
+
+        readonly Hashtable otazky = new Hashtable { "Kolko je 5 + 5":"10" }
     }
 }

@@ -9,5 +9,11 @@ namespace Test
     class Test
     {
 
+
+        public Test()
+        {
+
+
+        }
     }
 }
