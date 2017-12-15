@@ -9,12 +9,26 @@ namespace Test
 {
     class Otazka
     {
+        Dictionary<string, string> MultChoice = new Dictionary<string, string>();
+        Tuple<string, string, string> moznosti = new Tuple<string, string, string>();
+
         enum TypOtazky
         {
             SingleChoice,
             MultipleChoice
         }
 
-        readonly Hashtable otazky = new Hashtable { "Kolko je 5 + 5":"10" }
+        public Otazka()
+        {
+            MultChoice.Add("Kolko je 5 + 5", { "10","15"});
+
+
+
+        }
+    
+        
+        
+       
+        
     }
 }
