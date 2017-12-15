@@ -9,8 +9,12 @@ namespace Test
 {
     class Otazka
     {
-        Dictionary<string, string> MultChoice = new Dictionary<string, string>();
-        Tuple<string, string, string> moznosti = new Tuple<string, string, string>();
+        Tuple<string, string> moznosti = new Tuple<string, string>();
+
+        Dictionary<string, Tuple> MultChoice = new Dictionary<string, Tuple>();
+
+
+
 
         enum TypOtazky
         {
@@ -20,7 +24,7 @@ namespace Test
 
         public Otazka()
         {
-            MultChoice.Add("Kolko je 5 + 5", { "10","15"});
+            MultChoice.Add("Kolko je 5 + 5", );
 
 
 
