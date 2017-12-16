@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,27 +9,29 @@ namespace Test
 {
     public class DatabazaOtazok
     {
-        public string[] SingleChoiceOtazky = new string[] 
+        public Hashtable tabulka = new Hashtable();
+        
+        public string[] Otazky = new string[] 
         {
-            "Kolko je 5 + 5",
+            "Kolko je 5 x 5",
             "Aky je najvacsi suchozemsky cicavec?",
-            "Ako sa vola sucasny slovensky prezident?"
+            "Ako sa vola sucasny slovensky prezident?",
+            ""
         };
 
-        public string[][] SingleChoiceMoznosti =
+        public string[][] Moznosti =
         {
-            new string[] { "15", "10", "20" },
+            new string[] { "15", "10", "25" },
             new string[] { "slon", "velryba", "gorila" },
             new string[] { "Ivan Gasparovic", "Robert Fico", "Andrej Kiska" }
 
         };
 
-        public OznacenieOdpovede[] SpravneOdpovedeSC = new OznacenieOdpovede[]
+        public OznacenieOdpovede[][] SpravneOdpovede =
         {
-            OznacenieOdpovede.B,
-            OznacenieOdpovede.A,
-            OznacenieOdpovede.C            
+            new OznacenieOdpovede[] { OznacenieOdpovede.C },
+            new OznacenieOdpovede[] { OznacenieOdpovede.A },
+            new OznacenieOdpovede[] { OznacenieOdpovede.C }
         };
-
     }
 }

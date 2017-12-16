@@ -12,6 +12,7 @@ namespace Test
         Otazka[] otazky = new Otazka[10];
         DatabazaOtazok db = new DatabazaOtazok();
         Random r = new Random();
+        Hashtable tabulkaOtazok = new Hashtable();
 
         public Test()
         {         
@@ -30,9 +31,9 @@ namespace Test
 
                 otazky[i].TypOtazky = TypOtazky.SingleChoice;
                 otazky[i].SpravnaOdpoved = db.SpravneOdpovedeSC[index];
-                //otazky[i].OtazkaAMoznosti.Add(db.SingleChoiceOtazky[index], db.SingleChoiceMoznosti[index]);
-                
-                Console.WriteLine(index + " " + otazky[i].SpravnaOdpoved);
+                tabulkaOtazok.Add(db.SingleChoiceOtazky[index], db.SingleChoiceMoznosti[index]);
+
+                //Console.WriteLine(otazky[i].OtazkaAMoznosti.ke);
 
             }
         }
