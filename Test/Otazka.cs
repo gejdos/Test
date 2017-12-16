@@ -7,32 +7,10 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    class Otazka
+    struct Otazka
     {
-        Tuple<string, string> moznosti = new Tuple<string, string>();
-
-        Dictionary<string, Tuple> MultChoice = new Dictionary<string, Tuple>();
-
-
-
-
-        enum TypOtazky
-        {
-            SingleChoice,
-            MultipleChoice
-        }
-
-        public Otazka()
-        {
-            MultChoice.Add("Kolko je 5 + 5", );
-
-
-
-        }
-    
-        
-        
-       
-        
+        public TypOtazky TypOtazky;
+        public Hashtable OtazkaAMoznosti;
+        public OznacenieOdpovede SpravnaOdpoved;
     }
 }

@@ -10,6 +10,9 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            Test novyTest = new Test();
+            
+            Console.ReadKey();
         }
     }
 }

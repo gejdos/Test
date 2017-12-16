@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabazaOtazok.cs" />
     <Compile Include="Otazka.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="VlastnostiOtazky.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
