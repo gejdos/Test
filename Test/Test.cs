@@ -10,9 +10,9 @@ namespace Test
     public class Test
     {
         Otazka[] otazky = new Otazka[10];
-        DatabazaOtazok db = new DatabazaOtazok();
+        SingleChoiceDatabaza SCdb = new SingleChoiceDatabaza();
+        MultipleChoiceDatabaza MCdb = new MultipleChoiceDatabaza();
         Random r = new Random();
-        Hashtable tabulkaOtazok = new Hashtable();
 
         public Test()
         {         
@@ -30,10 +30,9 @@ namespace Test
                 int index = r.Next(3);
 
                 otazky[i].TypOtazky = TypOtazky.SingleChoice;
-                otazky[i].SpravnaOdpoved = db.SpravneOdpovedeSC[index];
-                tabulkaOtazok.Add(db.SingleChoiceOtazky[index], db.SingleChoiceMoznosti[index]);
+                otazky[i].SpravnaOdpoved = SCdb.SpravneOdpovede[index];
 
-                //Console.WriteLine(otazky[i].OtazkaAMoznosti.ke);
+
 
             }
         }
