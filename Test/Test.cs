@@ -30,7 +30,9 @@ namespace Test
                 int index = r.Next(3);
 
                 otazky[i].TypOtazky = TypOtazky.SingleChoice;
+                otazky[i].ZnenieOtazky = SCdb.Otazky[index];
                 otazky[i].SpravnaOdpoved = SCdb.SpravneOdpovede[index];
+
 
 
 
