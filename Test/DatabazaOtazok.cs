@@ -41,8 +41,8 @@ namespace Test
         public string[][] MoznostiMC =
         {
             new string[] { "ABC", "C#", "C++" },
-            new string[] { "slon", "velryba", "gorila" },
-            new string[] { "Ivan Gasparovic", "Robert Fico", "Andrej Kiska" }
+            new string[] { "", "", "" },
+            new string[] { "", "", "" }
 
         };
 
