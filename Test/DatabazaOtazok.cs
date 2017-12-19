@@ -30,5 +30,27 @@ namespace Test
             OznacenieOdpovede.A,
             OznacenieOdpovede.C
         };
+
+        public string[] OtazkyMC = new string[]
+{
+            "Oznac programovacie jazyky.",
+            "",
+            ""
+};
+
+        public string[][] MoznostiMC =
+        {
+            new string[] { "ABC", "C#", "C++" },
+            new string[] { "slon", "velryba", "gorila" },
+            new string[] { "Ivan Gasparovic", "Robert Fico", "Andrej Kiska" }
+
+        };
+
+        public OznacenieOdpovede[][] SpravneOdpovedeMC =
+        {
+            new OznacenieOdpovede[] { OznacenieOdpovede.B, OznacenieOdpovede.C },
+           new OznacenieOdpovede[] { OznacenieOdpovede.A },
+            new OznacenieOdpovede[] { OznacenieOdpovede.C }
+        };
     }
 }
