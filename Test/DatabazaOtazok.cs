@@ -8,18 +8,15 @@ using System.Threading.Tasks;
 namespace Test
 {
     public class DatabazaOtazok
-    {
-        public Hashtable tabulka = new Hashtable();
-        
-        public string[] Otazky = new string[] 
+    {        
+        public string[] OtazkySC = new string[] 
         {
             "Kolko je 5 x 5",
             "Aky je najvacsi suchozemsky cicavec?",
-            "Ako sa vola sucasny slovensky prezident?",
-            ""
+            "Ako sa vola sucasny slovensky prezident?"
         };
 
-        public string[][] Moznosti =
+        public string[][] MoznostiSC =
         {
             new string[] { "15", "10", "25" },
             new string[] { "slon", "velryba", "gorila" },
@@ -27,11 +24,11 @@ namespace Test
 
         };
 
-        public OznacenieOdpovede[][] SpravneOdpovede =
+        public OznacenieOdpovede[] SpravneOdpovedeSC = new OznacenieOdpovede[]
         {
-            new OznacenieOdpovede[] { OznacenieOdpovede.C },
-            new OznacenieOdpovede[] { OznacenieOdpovede.A },
-            new OznacenieOdpovede[] { OznacenieOdpovede.C }
+            OznacenieOdpovede.C,
+            OznacenieOdpovede.A,
+            OznacenieOdpovede.C
         };
     }
 }
