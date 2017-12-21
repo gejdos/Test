@@ -15,9 +15,7 @@ namespace Test
 
         public Test()
         {         
-
             NaplnOtazky();
-            //NaplnMultipleChoiceOtazky();
         }
 
         private void NaplnOtazky()
