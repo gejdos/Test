@@ -12,7 +12,7 @@ namespace Test
         MultipleChoice
     }
 
-    public enum OznacenieOdpovede
+    public enum Odpoved
     {
         A,
         B,

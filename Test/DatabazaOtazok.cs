@@ -26,12 +26,12 @@ namespace Test
 
         };
 
-        public OznacenieOdpovede[][] SpravneOdpovede = 
+        public Odpoved[][] SpravneOdpovede = 
         {
-            new OznacenieOdpovede[] { OznacenieOdpovede.B },
-            new OznacenieOdpovede[] { OznacenieOdpovede.A },
-            new OznacenieOdpovede[] { OznacenieOdpovede.C },
-            new OznacenieOdpovede[] { OznacenieOdpovede.A, OznacenieOdpovede.C }
+            new Odpoved[] { Odpoved.C },
+            new Odpoved[] { Odpoved.A },
+            new Odpoved[] { Odpoved.C },
+            new Odpoved[] { Odpoved.A, Odpoved.C }
         };
     }
 }
