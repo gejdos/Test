@@ -42,8 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SingleChoiceDatabaza.cs" />
-    <Compile Include="MultipleChoiceDatabaza.cs" />
+    <Compile Include="DatabazaOtazok.cs" />
     <Compile Include="Otazka.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

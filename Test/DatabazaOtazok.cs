@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    public class SingleChoiceDatabaza
+    public class DatabazaOtazok
     {        
         public string[] Otazky = new string[] 
         {
