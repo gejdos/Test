@@ -15,19 +15,20 @@ namespace Test
 
         public Test()
         {         
-            NaplnOtazky();
+            VyberOtazky();
         }
 
-        private void NaplnOtazky()
+        private void VyberOtazky()
         {
 
             for (int i = 0; i < otazky.Length / 2; i++)
             {
 
-                int index = r.Next(3);
+                int index = r.Next(4);
 
-                otazky[i].TypOtazky = TypOtazky.SingleChoice;
+                //otazky[i].TypOtazky = TypOtazky.SingleChoice;
                 otazky[i].ZnenieOtazky = db.Otazky[index];
+                otazky[i].Moznosti = db.Moznosti[index];
                 otazky[i].SpravnaOdpoved = db.SpravneOdpovede[index];
 
 
