@@ -16,6 +16,7 @@ namespace Test
             "Ako sa vola sucasny slovensky prezident?",
             "Ktore z uvedenych moznosti patria medzi programovacie jazyky?",
             "Ktore z uvedenych miest sa nachadzaju na Slovensku?"
+
         };
 
         public string[][] Moznosti =

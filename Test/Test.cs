@@ -9,7 +9,7 @@ namespace Test
 {
     public class Test
     {
-        Otazka[] otazky = new Otazka[4];
+        Otazka[] otazky = new Otazka[5];
         DatabazaOtazok db = new DatabazaOtazok();
         Random r = new Random();
         ArrayList nahodCisla = new ArrayList();
@@ -28,7 +28,7 @@ namespace Test
                 
                 do
                 {
-                    index = r.Next(4);
+                    index = r.Next(5);
 
                 } while (nahodCisla.Contains(index));
                 
@@ -44,10 +44,11 @@ namespace Test
             {
                 Console.WriteLine(o.ZnenieOtazky);
 
-                foreach (string s in o.Moznosti)
+                for (int i = 0; i < o.Moznosti.Length; i++)
                 {
-                    Console.WriteLine(s);
+                    Console.WriteLine("{0}. {1}", (Odpoved)i, o.Moznosti[i]);
                 }
+               
             }
 
             foreach (int s in nahodCisla)
