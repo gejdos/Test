@@ -22,7 +22,7 @@ namespace Test
         {
             new string[] { "15", "10", "25", "18", "20" },
             new string[] { "slon", "velryba", "gorila", "zirafa", "nosorozec" },
-            new string[] { "Ivan Gasparovic", "Robert Fico", "Andrej Kiska", "Pavol Rusko", "Vlaclav Klaus" },
+            new string[] { "Ivan Gasparovic", "Robert Fico", "Pavol Rusko", "Andrej Kiska", "Vlaclav Klaus" },
             new string[] {  },
             new string[] { "C++", "ABC", "C#", "RDR", "ACCA" }
 
@@ -32,7 +32,7 @@ namespace Test
         {
             new Odpoved[] { Odpoved.C },
             new Odpoved[] { Odpoved.A },
-            new Odpoved[] { Odpoved.C },
+            new Odpoved[] { Odpoved.D },
             new Odpoved[] {  },
             new Odpoved[] { Odpoved.A, Odpoved.C }
         };
