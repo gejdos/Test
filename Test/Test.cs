@@ -12,6 +12,7 @@ namespace Test
         Otazka[] otazky = new Otazka[4];
         DatabazaOtazok db = new DatabazaOtazok();
         Random r = new Random();
+        ArrayList nahodCisla = new ArrayList();
 
         public Test()
         {         
@@ -23,9 +24,16 @@ namespace Test
 
             for (int i = 0; i < otazky.Length / 2; i++)
             {
+                int index;
 
-                int index = r.Next(4);
+                do
+                {
+                    index = r.Next(4);
 
+                } while (nahodCisla.Contains(index));
+
+                nahodCisla.Add(index);
+                
                 //otazky[i].TypOtazky = TypOtazky.SingleChoice;
                 otazky[i].ZnenieOtazky = db.Otazky[index];
                 otazky[i].Moznosti = db.Moznosti[index];
