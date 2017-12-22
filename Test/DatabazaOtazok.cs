@@ -11,18 +11,20 @@ namespace Test
     {        
         public string[] Otazky = new string[] 
         {
-            "Kolko je 5 x 5",
+            "Kolko je 5 x 5?",
             "Aky je najvacsi suchozemsky cicavec?",
             "Ako sa vola sucasny slovensky prezident?",
+            "",
             "Ktore z uvedenych moznosti patria medzi programovacie jazyky?"
         };
 
         public string[][] Moznosti =
         {
-            new string[] { "15", "10", "25" },
-            new string[] { "slon", "velryba", "gorila" },
-            new string[] { "Ivan Gasparovic", "Robert Fico", "Andrej Kiska" },
-            new string[] { "C++", "ABC", "C#" }
+            new string[] { "15", "10", "25", "18", "20" },
+            new string[] { "slon", "velryba", "gorila", "zirafa", "nosorozec" },
+            new string[] { "Ivan Gasparovic", "Robert Fico", "Andrej Kiska", "Pavol Rusko", "Vlaclav Klaus" },
+            new string[] {  },
+            new string[] { "C++", "ABC", "C#", "RDR", "ACCA" }
 
         };
 
@@ -31,6 +33,7 @@ namespace Test
             new Odpoved[] { Odpoved.C },
             new Odpoved[] { Odpoved.A },
             new Odpoved[] { Odpoved.C },
+            new Odpoved[] {  },
             new Odpoved[] { Odpoved.A, Odpoved.C }
         };
     }
