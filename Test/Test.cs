@@ -57,5 +57,10 @@ namespace Test
             }
         }
 
+        private void PolozOtazku()
+        {
+
+        }
+
     }
 }
