@@ -14,7 +14,7 @@ namespace Test
             "Kolko je 5 x 5",
             "Aky je najvacsi suchozemsky cicavec?",
             "Ako sa vola sucasny slovensky prezident?",
-            "Ktore z uvedenych moznosti su programovacie jazyky?"
+            "Ktore z uvedenych moznosti patria medzi programovacie jazyky?"
         };
 
         public string[][] Moznosti =
