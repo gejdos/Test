@@ -9,7 +9,7 @@ namespace Test
 {
     public class Test
     {
-        Otazka[] otazky = new Otazka[10];
+        Otazka[] otazky = new Otazka[4];
         DatabazaOtazok db = new DatabazaOtazok();
         Random r = new Random();
 
@@ -30,10 +30,16 @@ namespace Test
                 otazky[i].ZnenieOtazky = db.Otazky[index];
                 otazky[i].Moznosti = db.Moznosti[index];
                 otazky[i].SpravnaOdpoved = db.SpravneOdpovede[index];
+            }
 
+            foreach (Otazka o in otazky)
+            {
+                Console.WriteLine(o.ZnenieOtazky);
 
-
-
+                foreach (string s in o.Moznosti)
+                {
+                    Console.WriteLine(s);
+                }
             }
         }
 
