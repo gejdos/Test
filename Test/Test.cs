@@ -25,13 +25,13 @@ namespace Test
             for (int i = 0; i < otazky.Length / 2; i++)
             {
                 int index;
-
+                
                 do
                 {
                     index = r.Next(4);
 
                 } while (nahodCisla.Contains(index));
-
+                
                 nahodCisla.Add(index);
                 
                 //otazky[i].TypOtazky = TypOtazky.SingleChoice;
@@ -39,7 +39,7 @@ namespace Test
                 otazky[i].Moznosti = db.Moznosti[index];
                 otazky[i].SpravnaOdpoved = db.SpravneOdpovede[index];
             }
-
+            
             foreach (Otazka o in otazky)
             {
                 Console.WriteLine(o.ZnenieOtazky);
