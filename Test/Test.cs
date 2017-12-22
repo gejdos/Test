@@ -22,7 +22,7 @@ namespace Test
         private void VyberOtazky()
         {
 
-            for (int i = 0; i < otazky.Length / 2; i++)
+            for (int i = 0; i < otazky.Length; i++)
             {
                 int index;
                 
@@ -48,6 +48,11 @@ namespace Test
                 {
                     Console.WriteLine(s);
                 }
+            }
+
+            foreach (int s in nahodCisla)
+            {
+                Console.WriteLine(s);
             }
         }
 
