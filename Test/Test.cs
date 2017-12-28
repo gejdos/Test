@@ -115,7 +115,7 @@ namespace Test
                 {
                     for (int i = 0; i < odpovedUpperCase.Length; i++)
                     {
-                        if (otazka.SpravnaOdpoved.(odpovedUpperCase[i].ToString()))
+                        if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
                         {
                             Console.WriteLine("dobre");
                             body++;
