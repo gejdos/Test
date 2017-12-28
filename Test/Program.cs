@@ -13,15 +13,22 @@ namespace Test
         {
             //Test novyTest = new Test();
             //novyTest.PolozOtazky();
-            while (true)
-            {
-                Regex reg = new Regex(@"^(?!.*?(.).*?\1)[a-eA-E]*$");
-                Console.WriteLine((reg.IsMatch(Console.ReadLine())));
+            //while (true)
+            //{
+                string str = "ahoj";
+
+                for (int i = 0; i < str.Length; i++)
+                {
+                    Console.WriteLine(str[i]);
+                }
+
+                //Regex reg = new Regex(@"^(?!.*?(.).*?\1)[a-eA-E]*$");
+                //Console.WriteLine((reg.IsMatch(Console.ReadLine())));
+                //}
+
+                //Console.WriteLine((int)Odpoved.A);
+
+                Console.ReadKey();
             }
-
-            //Console.WriteLine((int)Odpoved.A);
-
-            //Console.ReadKey();
-        }
     }
 }

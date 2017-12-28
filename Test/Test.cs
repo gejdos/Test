@@ -15,6 +15,7 @@ namespace Test
         Random r = new Random();
         ArrayList nahodCisla = new ArrayList();
         Otazka[] vybrateOtazky;
+        int body;
 
         public Test()
         {
@@ -71,7 +72,7 @@ namespace Test
 
                 } while (!SkontrolujVstup(odpoved));
 
-                //Vyhodnot(otazky[i], odpoved);
+                Vyhodnot(otazky[i], odpoved);
             }
         }
 
@@ -87,35 +88,43 @@ namespace Test
 
         private void Vyhodnot(Otazka otazka, string odpoved)
         {
-            if ((otazka.TypOtazky == TypOtazky.SingleChoice))
+
+            if (otazka.TypOtazky == TypOtazky.SingleChoice)
             {
-                if (odpoved == otazka.SpravnaOdpoved[0].ToString())
+                if (odpoved.Length > 1 || odpoved != otazka.SpravnaOdpoved[0].ToString())
                 {
-                    //body = body + 1;
+                    body--;
                 }
                 else
                 {
-                    //body = body - 1;
+                    body++;
                 }
-
             }
             else
             {
-                for (int i = 0; i < 5; i++)
+                if (odpoved.Length == 1)
                 {
-                    //if (otazka)
-                    //{
-
-                    //}
+                    body--;
                 }
-
-                if (odpoved == otazka.SpravnaOdpoved[0].ToString())
+                else
                 {
-                    //body = body + 1;
+                    for (int i = 0; i < odpoved.Length; i++)
+                    {
+                        for (int j = 0; j < otazka.SpravnaOdpoved.Length; j++)
+                        {
+                            if (odpoved[i].ToString() == otazka.SpravnaOdpoved[j].ToString())
+                            {
+                                body++;
+                            }
+                            else
+                            {
+                                body--;
+                            }
+                        }
+
+                    }
                 }
             }
-            
-            
         }
     }
 }
