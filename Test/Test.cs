@@ -19,6 +19,7 @@ namespace Test
 
         public Test()
         {
+            body = 0;
             vybrateOtazky = VyberOtazky();
         }
 
@@ -88,40 +89,42 @@ namespace Test
 
         private void Vyhodnot(Otazka otazka, string odpoved)
         {
+            string odpovedUpperCase = odpoved.ToUpper();
 
             if (otazka.TypOtazky == TypOtazky.SingleChoice)
             {
-                if (odpoved.Length > 1 || odpoved != otazka.SpravnaOdpoved[0].ToString())
+                if (odpovedUpperCase.Length > 1 || odpovedUpperCase != otazka.SpravnaOdpoved[0].ToString())
                 {
+                    Console.WriteLine("zle");
                     body--;
                 }
                 else
                 {
+                    Console.WriteLine("dobre");
                     body++;
                 }
             }
             else
             {
-                if (odpoved.Length == 1)
+                if (odpovedUpperCase.Length == 1)
                 {
+                    Console.WriteLine("zle");
                     body--;
                 }
                 else
                 {
-                    for (int i = 0; i < odpoved.Length; i++)
+                    for (int i = 0; i < odpovedUpperCase.Length; i++)
                     {
-                        for (int j = 0; j < otazka.SpravnaOdpoved.Length; j++)
+                        if (otazka.SpravnaOdpoved.(odpovedUpperCase[i].ToString()))
                         {
-                            if (odpoved[i].ToString() == otazka.SpravnaOdpoved[j].ToString())
-                            {
-                                body++;
-                            }
-                            else
-                            {
-                                body--;
-                            }
+                            Console.WriteLine("dobre");
+                            body++;
                         }
-
+                        else
+                        {
+                            Console.WriteLine("zle");
+                            body--;
+                        }
                     }
                 }
             }
