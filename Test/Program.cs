@@ -15,8 +15,7 @@ namespace Test
             //novyTest.PolozOtazky();
             while (true)
             {
-                Regex reg = new Regex("^[a-eA-E]*$");
-
+                Regex reg = new Regex(@"^(?!.*?(.).*?\1)[a-eA-E]*$");
                 Console.WriteLine((reg.IsMatch(Console.ReadLine())));
             }
 
