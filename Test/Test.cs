@@ -3,64 +3,119 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Test
 {
-    public class Test
+    partial class Test
     {
-        Otazka[] otazky = new Otazka[5];
-        DatabazaOtazok db = new DatabazaOtazok();
+        const int pocetOtazok = 5;
+        Otazka[] otazky = new Otazka[pocetOtazok];
         Random r = new Random();
         ArrayList nahodCisla = new ArrayList();
+        Otazka[] vybrateOtazky;
 
         public Test()
-        {         
-            VyberOtazky();
+        {
+            vybrateOtazky = VyberOtazky();
         }
 
-        private void VyberOtazky()
+        private Otazka[] VyberOtazky()
         {
-
-            for (int i = 0; i < otazky.Length; i++)
+            for (int i = 0; i < pocetOtazok; i++)
             {
                 int index;
+
+                do
+                {
+                    index = r.Next(10);
+
+                } while (nahodCisla.Contains(index));
+
+                nahodCisla.Add(index);
+
+                otazky[i].ZnenieOtazky = Otazky[index];
+                otazky[i].Moznosti = Moznosti[index];
+                otazky[i].SpravnaOdpoved = SpravneOdpovede[index];
+
+                if (otazky[i].SpravnaOdpoved.Length == 1)
+                {
+                    otazky[i].TypOtazky = TypOtazky.SingleChoice;
+                }
+                else
+                {
+                    otazky[i].TypOtazky = TypOtazky.MultipleChoice;
+                }
+            }
+
+            return otazky;
+        }
+
+        public void PolozOtazky()
+        {
+            string odpoved;
+            
+            for (int i = 0; i < vybrateOtazky.Length; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + vybrateOtazky[i].ZnenieOtazky);
+
+                for (int j = 0; j < vybrateOtazky[i].Moznosti.Length; j++)
+                {
+                    Console.WriteLine("\t{0}. {1}", (Odpoved)j, vybrateOtazky[i].Moznosti[j]);
+                }
                 
                 do
                 {
-                    index = r.Next(5);
+                    odpoved = Console.ReadLine();
 
-                } while (nahodCisla.Contains(index));
-                
-                nahodCisla.Add(index);
-                
-                //otazky[i].TypOtazky = TypOtazky.SingleChoice;
-                otazky[i].ZnenieOtazky = db.Otazky[index];
-                otazky[i].Moznosti = db.Moznosti[index];
-                otazky[i].SpravnaOdpoved = db.SpravneOdpovede[index];
+                } while (!SkontrolujVstup(odpoved));
+
+                //Vyhodnot(otazky[i], odpoved);
+            }
+        }
+
+        private bool SkontrolujVstup(string input)
+        {
+            Regex reg = new Regex("^[a-eA-E]*$");
+
+            if (reg.IsMatch(input)) return true;
+            
+            Console.WriteLine("Nespravny vstup. Skuste to znovu.");
+            return false;
+        }
+
+        private void Vyhodnot(Otazka otazka, string odpoved)
+        {
+            if ((otazka.TypOtazky == TypOtazky.SingleChoice))
+            {
+                if (odpoved == otazka.SpravnaOdpoved[0].ToString())
+                {
+                    //body = body + 1;
+                }
+                else
+                {
+                    //body = body - 1;
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    //if (otazka)
+                    //{
+
+                    //}
+                }
+
+                if (odpoved == otazka.SpravnaOdpoved[0].ToString())
+                {
+                    //body = body + 1;
+                }
             }
             
-            foreach (Otazka o in otazky)
-            {
-                Console.WriteLine(o.ZnenieOtazky);
-
-                for (int i = 0; i < o.Moznosti.Length; i++)
-                {
-                    Console.WriteLine("{0}. {1}", (Odpoved)i, o.Moznosti[i]);
-                }
-               
-            }
-
-            foreach (int s in nahodCisla)
-            {
-                Console.WriteLine(s);
-            }
+            
         }
-
-        private void PolozOtazku()
-        {
-
-        }
-
     }
 }

@@ -11,7 +11,7 @@ namespace Test
     {
         public string ZnenieOtazky;
         public string[] Moznosti;
-        //public TypOtazky TypOtazky;
+        public TypOtazky TypOtazky;
         public Odpoved[] SpravnaOdpoved;
     }
 }

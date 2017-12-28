@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Test
@@ -10,11 +11,18 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Test novyTest = new Test();
+            //Test novyTest = new Test();
+            //novyTest.PolozOtazky();
+            while (true)
+            {
+                Regex reg = new Regex("^[a-eA-E]*$");
+
+                Console.WriteLine((reg.IsMatch(Console.ReadLine())));
+            }
 
             //Console.WriteLine((int)Odpoved.A);
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }
