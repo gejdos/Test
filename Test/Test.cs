@@ -50,7 +50,19 @@ namespace Test
                 {
                     otazky[i].TypOtazky = TypOtazky.MultipleChoice;
                 }
-                
+
+                //zarad do fronty
+
+                fronta.Enqueue(otazky[i].ZnenieOtazky);
+                foreach (string s in otazky[i].Moznosti)
+                {
+                    fronta.Enqueue(s);
+                }
+                fronta.Enqueue("Spravna odpoved");
+                foreach (Odpoved odp in otazky[i].SpravnaOdpoved)
+                {
+                    fronta.Enqueue(odp.ToString());
+                }
             }
 
             return otazky;
@@ -75,8 +87,11 @@ namespace Test
 
                 } while (!SkontrolujVstup(odpoved));
 
-                Vyhodnot(otazky[i], odpoved);
+                Oboduj(otazky[i], odpoved);
             }
+            
+            Console.WriteLine(body);
+            Vyhodnot();
         }
 
         private bool SkontrolujVstup(string input)
@@ -89,7 +104,7 @@ namespace Test
             return false;
         }
 
-        private void Vyhodnot(Otazka otazka, string odpoved)
+        private void Oboduj(Otazka otazka, string odpoved)
         {
             string odpovedUpperCase = odpoved.ToUpper();
 
@@ -103,6 +118,7 @@ namespace Test
                 {
                     body++;
                 }
+                Console.WriteLine(body);
             }
             else
             {
@@ -124,6 +140,14 @@ namespace Test
                         }
                     }
                 }
+            }
+        }
+     
+        private void Vyhodnot()
+        {
+            while (fronta.Count > 0)
+            {
+                Console.WriteLine(fronta.Dequeue());
             }
         }
     }
