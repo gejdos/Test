@@ -16,6 +16,7 @@ namespace Test
         ArrayList nahodCisla = new ArrayList();
         Otazka[] vybrateOtazky;
         int body;
+        Queue fronta = new Queue();
 
         public Test()
         {
@@ -49,6 +50,7 @@ namespace Test
                 {
                     otazky[i].TypOtazky = TypOtazky.MultipleChoice;
                 }
+                
             }
 
             return otazky;
