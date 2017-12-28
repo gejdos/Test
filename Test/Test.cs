@@ -97,12 +97,10 @@ namespace Test
             {
                 if (odpovedUpperCase.Length > 1 || odpovedUpperCase != otazka.SpravnaOdpoved[0].ToString())
                 {
-                    Console.WriteLine("zle");
                     body--;
                 }
                 else
                 {
-                    Console.WriteLine("dobre");
                     body++;
                 }
             }
@@ -110,7 +108,6 @@ namespace Test
             {
                 if (odpovedUpperCase.Length == 1)
                 {
-                    Console.WriteLine("zle");
                     body--;
                 }
                 else
@@ -119,12 +116,10 @@ namespace Test
                     {
                         if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
                         {
-                            Console.WriteLine("dobre");
                             body++;
                         }
                         else
                         {
-                            Console.WriteLine("zle");
                             body--;
                         }
                     }
