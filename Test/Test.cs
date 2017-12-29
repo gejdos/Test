@@ -16,7 +16,7 @@ namespace Test
         ArrayList nahodCisla = new ArrayList();
         Otazka[] vybrateOtazky;
         int body;
-        Queue fronta = new Queue();
+        Queue historia = new Queue();
 
         public Test()
         {
@@ -53,15 +53,15 @@ namespace Test
 
                 //zarad do fronty
 
-                fronta.Enqueue(otazky[i].ZnenieOtazky);
+                historia.Enqueue(otazky[i].ZnenieOtazky);
                 foreach (string s in otazky[i].Moznosti)
                 {
-                    fronta.Enqueue(s);
+                    historia.Enqueue(s);
                 }
-                fronta.Enqueue("Spravna odpoved");
+                historia.Enqueue("Spravna odpoved");
                 foreach (Odpoved odp in otazky[i].SpravnaOdpoved)
                 {
-                    fronta.Enqueue(odp.ToString());
+                    historia.Enqueue(odp.ToString());
                 }
             }
 
@@ -145,9 +145,9 @@ namespace Test
      
         private void Vyhodnot()
         {
-            while (fronta.Count > 0)
+            while (historia.Count > 0)
             {
-                Console.WriteLine(fronta.Dequeue());
+                Console.WriteLine(historia.Dequeue());
             }
         }
     }
