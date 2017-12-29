@@ -10,7 +10,7 @@ namespace Test
 {
     partial class Test
     {
-        const int pocetOtazok = 5;
+        const int pocetOtazok = 10;
         Otazka[] otazky = new Otazka[pocetOtazok];
         Random r = new Random();
         ArrayList nahodCisla = new ArrayList();
@@ -21,12 +21,12 @@ namespace Test
         {
             body = 0;
             VyberOtazky();
+
             Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine("Toto je jednoduchy test zlozeny z piatich otazok.");
+            Console.WriteLine("Toto je jednoduchy test zlozeny z {0} otazok.", pocetOtazok);
             Console.WriteLine("Priklad odpovede na Single Choice otazku: a / A");
             Console.WriteLine("Priklad odpovede na Multiple Choice otazku: abc / ABC");
             Console.WriteLine("------------------------------------------------------\n");
-
         }
 
         private void VyberOtazky()
@@ -94,7 +94,6 @@ namespace Test
                 Oboduj(otazky[i], odpoved);
             }
             
-            Console.WriteLine(body);
             Vyhodnot();
         }
 
@@ -137,6 +136,12 @@ namespace Test
      
         private void Vyhodnot()
         {
+            if (body < 0)
+            {
+                body = 0;
+            }
+
+            Console.WriteLine("\nZiskali ste {0} bodov\n", body);
             while (historia.Count > 0)
             {
                 Console.WriteLine(historia.Dequeue());
