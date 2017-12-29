@@ -106,8 +106,7 @@ namespace Test
         {
             string odpovedUpperCase = odpoved.ToUpper();
 
-            if ((otazka.TypOtazky == TypOtazky.SingleChoice && odpovedUpperCase.Length > 1) ||
-                (otazka.TypOtazky == TypOtazky.MultipleChoice && odpovedUpperCase.Length == 1))
+            if (otazka.TypOtazky == TypOtazky.SingleChoice && odpovedUpperCase.Length > 1)
             {
                 body--;
                 Console.WriteLine("zle");
@@ -116,7 +115,7 @@ namespace Test
             {
                 for (int i = 0; i < odpovedUpperCase.Length; i++)
                 {
-                    if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() != odpovedUpperCase[i].ToString()))
+                    if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
                     {
                         body++;
                         Console.WriteLine("dobre");
@@ -128,42 +127,6 @@ namespace Test
                     }
                 }
             }
-
-
-
-
-            //if (otazka.TypOtazky == TypOtazky.SingleChoice)
-            //{
-            //    if (odpovedUpperCase.Length > 1 || odpovedUpperCase != otazka.SpravnaOdpoved[0].ToString())
-            //    {
-            //        body--;
-            //    }
-            //    else
-            //    {
-            //        body++;
-            //    }
-            //}
-            //else
-            //{
-            //    if (odpovedUpperCase.Length == 1)
-            //    {
-            //        body--;
-            //    }
-            //    else
-            //    {
-            //        for (int i = 0; i < odpovedUpperCase.Length; i++)
-            //        {
-            //            if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
-            //            {
-            //                body++;
-            //            }
-            //            else
-            //            {
-            //                body--;
-            //            }
-            //        }
-            //    }
-            //}
         }
      
         private void Vyhodnot()
