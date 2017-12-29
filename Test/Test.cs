@@ -14,17 +14,16 @@ namespace Test
         Otazka[] otazky = new Otazka[pocetOtazok];
         Random r = new Random();
         ArrayList nahodCisla = new ArrayList();
-        Otazka[] vybrateOtazky;
         int body;
         Queue historia = new Queue();
 
         public Test()
         {
             body = 0;
-            vybrateOtazky = VyberOtazky();
+            VyberOtazky();
         }
 
-        private Otazka[] VyberOtazky()
+        private void VyberOtazky()
         {
             for (int i = 0; i < pocetOtazok; i++)
             {
@@ -65,20 +64,19 @@ namespace Test
                 }
             }
 
-            return otazky;
         }
 
         public void PolozOtazky()
         {
             string odpoved;
             
-            for (int i = 0; i < vybrateOtazky.Length; i++)
+            for (int i = 0; i < otazky.Length; i++)
             {
-                Console.WriteLine((i + 1) + ". " + vybrateOtazky[i].ZnenieOtazky);
+                Console.WriteLine((i + 1) + ". " + otazky[i].ZnenieOtazky);
 
-                for (int j = 0; j < vybrateOtazky[i].Moznosti.Length; j++)
+                for (int j = 0; j < otazky[i].Moznosti.Length; j++)
                 {
-                    Console.WriteLine("\t{0}. {1}", (Odpoved)j, vybrateOtazky[i].Moznosti[j]);
+                    Console.WriteLine("\t{0}. {1}", (Odpoved)j, otazky[i].Moznosti[j]);
                 }
                 
                 do
@@ -108,39 +106,64 @@ namespace Test
         {
             string odpovedUpperCase = odpoved.ToUpper();
 
-            if (otazka.TypOtazky == TypOtazky.SingleChoice)
+            if ((otazka.TypOtazky == TypOtazky.SingleChoice && odpovedUpperCase.Length > 1) ||
+                (otazka.TypOtazky == TypOtazky.MultipleChoice && odpovedUpperCase.Length == 1))
             {
-                if (odpovedUpperCase.Length > 1 || odpovedUpperCase != otazka.SpravnaOdpoved[0].ToString())
-                {
-                    body--;
-                }
-                else
-                {
-                    body++;
-                }
-                Console.WriteLine(body);
+                body--;
+                Console.WriteLine("zle");
             }
             else
             {
-                if (odpovedUpperCase.Length == 1)
+                for (int i = 0; i < odpovedUpperCase.Length; i++)
                 {
-                    body--;
-                }
-                else
-                {
-                    for (int i = 0; i < odpovedUpperCase.Length; i++)
+                    if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() != odpovedUpperCase[i].ToString()))
                     {
-                        if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
-                        {
-                            body++;
-                        }
-                        else
-                        {
-                            body--;
-                        }
+                        body++;
+                        Console.WriteLine("dobre");
+                    }
+                    else
+                    {
+                        body--;
+                        Console.WriteLine("zle");
                     }
                 }
             }
+
+
+
+
+            //if (otazka.TypOtazky == TypOtazky.SingleChoice)
+            //{
+            //    if (odpovedUpperCase.Length > 1 || odpovedUpperCase != otazka.SpravnaOdpoved[0].ToString())
+            //    {
+            //        body--;
+            //    }
+            //    else
+            //    {
+            //        body++;
+            //    }
+            //}
+            //else
+            //{
+            //    if (odpovedUpperCase.Length == 1)
+            //    {
+            //        body--;
+            //    }
+            //    else
+            //    {
+            //        for (int i = 0; i < odpovedUpperCase.Length; i++)
+            //        {
+            //            if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
+            //            {
+            //                body++;
+            //            }
+            //            else
+            //            {
+            //                body--;
+            //            }
+            //        }
+            //    }
+            //}
         }
      
         private void Vyhodnot()
