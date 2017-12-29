@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Test
 {
@@ -55,19 +51,7 @@ namespace Test
                 {
                     otazky[i].TypOtazky = TypOtazky.MultipleChoice;
                 }
-
-                //zarad do fronty
-
-                historia.Enqueue(otazky[i].ZnenieOtazky);
-                foreach (string s in otazky[i].Moznosti)
-                {
-                    historia.Enqueue(s);
-                }
-                historia.Enqueue("Spravna odpoved");
-                foreach (Odpoved odp in otazky[i].SpravnaOdpoved)
-                {
-                    historia.Enqueue(odp.ToString());
-                }
+                
             }
 
         }
@@ -92,6 +76,25 @@ namespace Test
                 } while (!SkontrolujVstup(odpoved));
 
                 Oboduj(otazky[i], odpoved);
+
+
+                //zarad do fronty
+                historia.Enqueue("OTAZKA: " + otazky[i].ZnenieOtazky);
+                historia.Enqueue("VASA ODPOVED:");
+                for (int j = 0; j < odpoved.Length; j++)
+                {
+                    Odpoved odp = odpoved[j].ToString();
+
+                    historia.Enqueue(otazky[i].Moznosti[(int)odp]);
+                }
+
+                historia.Enqueue("SPRAVNA ODPOVED:");
+                foreach (Odpoved odp in otazky[i].SpravnaOdpoved)
+                {
+                    historia.Enqueue(odp);   
+                }
+
+                
             }
             
             Vyhodnot();
@@ -141,7 +144,7 @@ namespace Test
                 body = 0;
             }
 
-            Console.WriteLine("\nZiskali ste {0} bodov\n", body);
+            Console.WriteLine("\nZiskali ste {0} bodov.\n", body);
             while (historia.Count > 0)
             {
                 Console.WriteLine(historia.Dequeue());

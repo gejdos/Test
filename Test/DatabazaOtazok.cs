@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Test
+﻿namespace Test
 {
     partial class Test
     {
@@ -27,12 +20,12 @@ namespace Test
         {
             new string[] { "15", "10", "25", "18", "20" },
             new string[] { "slon", "velryba", "gorila", "zirafa", "nosorozec" },
-            new string[] { "Ivan Gasparovic", "Robert Fico", "Pavol Rusko", "Andrej Kiska", "Vlaclav Klaus" },
+            new string[] { "Ivan Gasparovic", "Robert Fico", "Pavol Rusko", "Andrej Kiska", "Vaclav Klaus" },
             new string[] { "Brazilia", "India", "USA", "Kanada", "Cina" },
             new string[] { "1500", "1492", "1831", "1250", "1993" },
             new string[] { "C++", "ABC", "C#", "RDR", "ACCA" },
             new string[] { "Brno", "Chorvatsky Grob", "Zvolen", "Kromeriz", "Skalica" },
-            new string[] { "Thomas Edison", "Abraham Lincoln", "Jack Black", "Jimmy Hendrix", "George Bush" },
+            new string[] { "Thomas Edison", "Abraham Lincoln", "Jack Black", "Jimi Hendrix", "George Bush" },
             new string[] { "Ukrajina", "Francuzsko", "Svajciarsko", "Slovensko", "Nemecko" },
             new string[] { "O mysiach a ludoch", "Navrat krala", "Spolocenstvo prstena", "Sumrak", "Demon suhlasu" }
         };
