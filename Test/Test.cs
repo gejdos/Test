@@ -10,7 +10,7 @@ namespace Test
 {
     partial class Test
     {
-        const int pocetOtazok = 10;
+        const int pocetOtazok = 5;
         Otazka[] otazky = new Otazka[pocetOtazok];
         Random r = new Random();
         ArrayList nahodCisla = new ArrayList();
