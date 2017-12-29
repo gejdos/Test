@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Timers;
 
 namespace Test
 {
@@ -22,6 +24,7 @@ namespace Test
             Console.WriteLine("Toto je jednoduchy test zlozeny z {0} otazok.", pocetOtazok);
             Console.WriteLine("Priklad odpovede na Single Choice otazku: a / A");
             Console.WriteLine("Priklad odpovede na Multiple Choice otazku: abc / ABC");
+            Console.WriteLine("Cas na vyplnenie testu su 2 minuty.");
             Console.WriteLine("------------------------------------------------------\n");
         }
 
@@ -56,6 +59,9 @@ namespace Test
 
         public void PolozOtazky()
         {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 120000; //2 minuty
+            timer.Elapsed += Timer_Elapsed; timer.Start();
             string odpoved;
             
             for (int i = 0; i < otazky.Length; i++)
@@ -77,8 +83,17 @@ namespace Test
 
                 ZaradDoHistorie(otazky[i], odpoved);
             }
-            
+
+            timer.Stop();
+
             Vyhodnot();
+        }
+
+        private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Console.WriteLine("CAS VYPRSAL.\nPROGRAM BUDE UKONCENY.");
+            Thread.Sleep(2000);
+            Environment.Exit(0);
         }
 
         private bool SkontrolujVstup(string input)
