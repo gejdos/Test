@@ -51,9 +51,7 @@ namespace Test
                 {
                     otazky[i].TypOtazky = TypOtazky.MultipleChoice;
                 }
-                
             }
-
         }
 
         public void PolozOtazky()
@@ -77,24 +75,7 @@ namespace Test
 
                 Oboduj(otazky[i], odpoved);
 
-
-                //zarad do fronty
-                historia.Enqueue("OTAZKA: " + otazky[i].ZnenieOtazky);
-                historia.Enqueue("VASA ODPOVED:");
-                for (int j = 0; j < odpoved.Length; j++)
-                {
-                    Odpoved odp = odpoved[j].ToString();
-
-                    historia.Enqueue(otazky[i].Moznosti[(int)odp]);
-                }
-
-                historia.Enqueue("SPRAVNA ODPOVED:");
-                foreach (Odpoved odp in otazky[i].SpravnaOdpoved)
-                {
-                    historia.Enqueue(odp);   
-                }
-
-                
+                ZaradDoHistorie(otazky[i], odpoved);
             }
             
             Vyhodnot();
@@ -117,7 +98,6 @@ namespace Test
             if (otazka.TypOtazky == TypOtazky.SingleChoice && odpovedUpperCase.Length > 1)
             {
                 body--;
-                Console.WriteLine("zle");
             }
             else
             {
@@ -126,25 +106,55 @@ namespace Test
                     if (Array.Exists(otazka.SpravnaOdpoved, element => element.ToString() == odpovedUpperCase[i].ToString()))
                     {
                         body++;
-                        Console.WriteLine("dobre");
                     }
                     else
                     {
                         body--;
-                        Console.WriteLine("zle");
                     }
                 }
             }
         }
-     
+
+        private void ZaradDoHistorie(Otazka o, string odpoved)
+        {
+            historia.Enqueue("OTAZKA: " + o.ZnenieOtazky);
+            historia.Enqueue("VASA ODPOVED:");
+            for (int j = 0; j < odpoved.Length; j++)
+            {
+                Odpoved odp = (Odpoved)Enum.Parse(typeof(Odpoved), odpoved[j].ToString().ToUpper());
+
+                historia.Enqueue("\t" + o.Moznosti[(int)odp]);
+            }
+
+            historia.Enqueue("SPRAVNA ODPOVED:");
+            foreach (Odpoved odp in o.SpravnaOdpoved)
+            {
+                historia.Enqueue("\t" + o.Moznosti[(int)odp]);
+            }
+        }
+
         private void Vyhodnot()
         {
+            Console.WriteLine("\n--------------------------------VYHODNOTENIE--------------------------------");
+
             if (body < 0)
             {
                 body = 0;
             }
 
-            Console.WriteLine("\nZiskali ste {0} bodov.\n", body);
+            if (body == 1)
+            {
+                Console.WriteLine("\nZISKALI STE 1 BOD.\n");
+            }
+            else if (body > 1 && body < 5)
+            {
+                Console.WriteLine("\nZISKALI STE {0} BODY.\n", body);
+            }
+            else
+            {
+                Console.WriteLine("\nZISKALI STE {0} BODOV.\n", body);
+            }
+            
             while (historia.Count > 0)
             {
                 Console.WriteLine(historia.Dequeue());
