@@ -21,6 +21,12 @@ namespace Test
         {
             body = 0;
             VyberOtazky();
+            Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine("Toto je jednoduchy test zlozeny z piatich otazok.");
+            Console.WriteLine("Priklad odpovede na Single Choice otazku: a / A");
+            Console.WriteLine("Priklad odpovede na Multiple Choice otazku: abc / ABC");
+            Console.WriteLine("------------------------------------------------------\n");
+
         }
 
         private void VyberOtazky()
