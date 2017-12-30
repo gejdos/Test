@@ -24,7 +24,7 @@ namespace Test
             Console.WriteLine("Toto je jednoduchy test zlozeny z {0} otazok.", pocetOtazok);
             Console.WriteLine("Priklad odpovede na Single Choice otazku: a / A");
             Console.WriteLine("Priklad odpovede na Multiple Choice otazku: abc / ABC");
-            Console.WriteLine("Cas na vyplnenie testu su 2 minuty.");
+            Console.WriteLine("Cas na vyplnenie testu je 2 minuty.");
             Console.WriteLine("------------------------------------------------------\n");
         }
 
