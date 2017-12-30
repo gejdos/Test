@@ -98,7 +98,7 @@ namespace Test
 
         private bool SkontrolujVstup(string input)
         {
-            Regex reg = new Regex(@"^(?!.*?(.).*?\1)[a-eA-E]*$");
+            Regex reg = new Regex(@"^(?!.*?(.).*?\1)[a-eA-E].*$");
 
             if (reg.IsMatch(input)) return true;
             
